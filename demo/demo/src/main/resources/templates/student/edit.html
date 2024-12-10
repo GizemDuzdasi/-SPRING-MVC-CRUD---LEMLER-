@@ -1,0 +1,42 @@
+<!-- edit.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Öğrenci Düzenle</title>
+</head>
+<body>
+
+<div class="container">
+    <center>
+    <h1>Öğrenci Yönetim Sistemi</h1>    
+    </center>
+
+    <h2>Öğrenci Düzenle</h2>
+
+    <form th:action="@{/students/edit/{id}(id=${student.id})}" th:object="${student}" method="post">
+        <input type="hidden" th:field="*{id}">
+
+		<label for="name">Adı:</label>
+		<input type="text" id="name" name="name" th:field="*{name}" required>
+				
+		<label for="lname">Soyadı:</label>
+		<input type="text" id="lname" name="lname" th:field="*{lname}" required>
+
+		<label for="stnumber">Öğrenci Numarası:</label>
+		<input type="number" id="stnumber" name="stnumber" th:field="*{stnumber}" required>
+				
+	    <label for="bolum">Öğrencinin Bölümü:</label>
+	    <input type="text" id="bolum" name="bolum" th:field="*{bolum}" required>
+
+        <button type="submit">Kaydet</button>
+    </form>
+
+    <a href="/students">Listeye Geri Dön</a>
+
+</div>
+
+</body>
+</html>
